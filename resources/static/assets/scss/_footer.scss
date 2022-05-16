@@ -1,0 +1,194 @@
+/*----------------------------------------*/
+/*  21. Footer CSS
+/*----------------------------------------*/
+
+/*-- Footer Widget --*/
+.footer-widget {
+    & .footer-logo{
+        margin-bottom: 30px;
+        & a{
+            display: block;
+            & img{
+                width: 107px;
+            }
+        }
+    }
+    // Title
+    & .title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+        // Responsive
+        @media #{$tablet-device}{
+            margin-bottom: 15px;
+        }
+        @media #{$large-mobile}{
+            margin-bottom: 15px;
+        }
+    }
+    & p {
+        font-size: 13px;
+        line-height: 23px;
+        margin-bottom: 0;
+        // Responsive
+        @media #{$desktop-device}{
+            font-size: 12px;
+        }
+    }
+    & .opeaning-title{
+        font-size: 13px;
+        line-height: 17px;
+        font-weight: 500;
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+    & ul.address {
+        & li {
+            display: flex;
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 12px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            
+            & i {
+                margin-right: 15px;
+                line-height: 28px;
+                font-size: 18px;
+            }
+            & span {
+                overflow: hidden;
+            }
+            & a {
+                display: block;
+                &:hover {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+    & > .ft-menu{
+        display: inline-block;
+        & > li{
+            font-size: 13px;
+            line-height: 23px;
+            margin-bottom: 13px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            & > a{
+                text-transform: capitalize;
+                text-decoration: none;
+                display: inherit;
+                transition: all 0.4s ease-out;
+                &:hover{
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+}
+
+/*-- Footer Social --*/
+.f-social-title{
+    margin-top: 30px;
+    & h3{
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+}
+.footer-social {
+    display: flex;
+    & a {
+        margin-right: 25px;
+        display: block;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            color: $theme-color;
+        }
+        & i {
+            display: block;
+            font-size: 14px;
+            line-height: 28px;
+        }
+    }
+}
+/*-- Footer News Letter --*/
+.footer-newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    & input {
+        width: calc(100% - 40px);
+        max-width: 250px;
+        border: 1px solid rgba($white, 0.3);
+        background-color: transparent;
+        color: $white;
+        line-height: 24px;
+        padding: 7px 15px;
+        font-size: 13px;
+    }
+    & button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-color: $theme-color;
+        color: $white;
+    }
+}
+
+/*-- Footer Bottom --*/
+/*-- Copyright --*/
+.copyright {
+    // Responsive
+    @media #{$large-mobile}{
+        text-align: center !important;
+    }
+    & p {
+        line-height: 30px;
+        font-size: 13px;
+        // Responsive
+        @media #{$small-mobile}{
+            font-size: 12px;
+        }
+        & a {
+            color: $theme-color;
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+}
+.footer-nav{
+    // Responsive
+    @media #{$large-mobile}{
+        text-align: center !important;
+    }
+    & ul{
+        & li{
+            display: inline-block;
+            margin: 0 40px 0 0;
+            vertical-align: middle;
+            // Responsive
+            @media #{$large-mobile}{
+                margin: 0 25px 0 0;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+            & a{
+                font-size: 13px;
+                line-height: 19px;
+            }
+        }
+    }
+}

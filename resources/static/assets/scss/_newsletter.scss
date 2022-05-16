@@ -1,0 +1,189 @@
+/*---------------------------------------
+    15. Newsletter CSS
+-----------------------------------------*/
+.newsletter-wrapper{
+    text-align: center;
+    .small-text{
+        margin-bottom: 0;
+        font-size: 13px;
+        line-height: 23px;
+        @media #{$extra-small-mobile}{
+            margin-bottom: 10px;
+        }
+    }
+    .title{
+        margin-bottom: 20px;
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 500;
+        @media #{$large-mobile}{
+        }
+
+        @media #{$extra-small-mobile}{
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+    }
+    .short-desc{
+        margin-bottom: 30px;
+        font-size: 13px;
+        line-height: 23px;
+        @media #{$extra-small-mobile}{
+            margin-bottom: 30px;
+        }
+    }
+
+}
+
+.newsletter-form{   
+    position: relative;
+    border: 2px solid #ebebeb;
+    width: 620px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    input{
+        width: 100%;
+        border: none;
+        padding: 10px 20px;
+        padding-right: 200px;
+        line-height: 30px;
+        height: 55px;
+        color: #9d9d9d;
+        font-size: 13px;
+
+        @media #{$large-mobile}{
+            height: 40px;
+            padding-right: 150px;
+        }
+
+        @media #{$extra-small-mobile}{
+            padding-right: 128px;
+            font-size: 11px;
+        }
+    }
+
+    button{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;   
+        background: none;
+        border: none;
+        width: 200px;
+        border-left: 2px solid #ebebeb;
+        font-size: 13px;
+        font-weight: 600;
+        color: $heading-color;
+        @media #{$large-mobile}{
+            width: 150px;
+        }
+
+        @media #{$extra-small-mobile}{
+            width: 100px;
+            font-size: 11px;
+        }
+
+        &:hover{
+            color: $theme-color;
+        }
+    }
+}
+
+.newsletter-popup-area{
+
+
+    @media #{$tablet-device, $large-mobile}{
+        display: none;
+    }
+
+    &:after{
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        opacity: 0.8;
+        z-index: 99;
+        visibility: visible;
+    }
+
+}
+
+.newsletter-popup-content{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    padding: 50px 20px;
+    z-index: 999;
+    width: 50%;
+
+    @media #{$laptop-device}{
+        width: 70%;
+    }
+
+    @media #{$desktop-device}{
+        width: 80%;
+    }
+
+
+    .close-newsletter-popup{
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px 15px;
+        background-color: #333;
+        color: $white;
+
+        &:hover{
+            background-color: $theme-color;
+        }
+    }
+
+
+    h2{
+        font-size: 24px;
+        text-transform: uppercase;
+        color: $heading-color;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin: 0 0 15px;
+    }
+
+    p{
+        
+    }
+
+    .subscription-form{
+        form{
+            input{
+                background: #EBEBEB none repeat scroll 0% 0%;
+                border: medium none;
+                height: 40px;
+                width: 65%;
+                margin: 20px auto;
+                padding: 0 15px;
+                font-size: 15px;
+                display: block;
+            }
+
+            button{
+                border-radius: 5px;
+                background-color: #f0f0f0;
+                color: #333;
+                margin-bottom: 20px;
+
+                &:hover{
+                    background-color: $theme-color;
+                    color: $white;
+                }
+            }
+        }
+    }
+    
+    
+}
