@@ -518,11 +518,54 @@ padding: 0 6px;}
 ._checkOut_form_title{font-size: 16px;font-weight: 500;color: var(--color);margin-bottom: 22px;}
 ._cart_details_list{}
 ._cart_details_list li{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
 /*======= 6.Checkout page end =======*/
 
+
+@media only screen and (max-width: 767px){
+._header {
+    display: none;
+}
+._mob_footer_title{
+    margin-top: 30px;
+}
+._1footer {
+    padding-bottom: 59px;
+}
+._1footer_bottom {
+    flex-wrap: wrap;
+}
+._1footer_copy {
+    flex: 0 0 100%;
+    margin: 0 0 23px;
+}
+._pay_img {
+    max-width: 236px;
+    margin: 0 auto;
+    flex: 0 0 100%;
+}
+._single_page {
+    padding-top: 15px;
+}
+._1hooper:hover .hooper-next {
+    right: 0;
+}
+._1hooper:hover .hooper-prev {
+    left: 0px;
+}
+._bestSec_con {
+    padding: 40px 0 26px;
+}
+._bestSec_title {
+    font-size: 25px;
+}
+._bestSec_top {
+    margin-bottom: 15px;
+}
+._contact {
+    margin-top: 15px;
+    padding: 30px;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+}

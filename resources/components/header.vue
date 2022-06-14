@@ -45,21 +45,12 @@
                     </div>
 
                     <ul class="_1menu_list">
-                        <li>
-                            <a href="" class="_1menu_list_text">Home</a>
-                        </li>
-                        <li>
-                            <a href="" class="_1menu_list_text">Man</a>
-                        </li>
-                        <li>
-                            <a href="" class="_1menu_list_text">Woman</a>
-                        </li>
-                        <li>
-                            <a href="" class="_1menu_list_text">Baby Collection</a>
-                        </li>
-                        <li>
-                            <a href="" class="_1menu_list_text">Blog</a>
-                        </li>
+                        <li><nuxt-link class="_1menu_list_text" to="/">Home</nuxt-link></li>
+                        <li><nuxt-link class="_1menu_list_text" to="/shop">Shop</nuxt-link></li>
+                        <!-- <li><nuxt-link  class="_1menu_list_text" to="/bokor">JIN</nuxt-link></li> -->
+                        <li><nuxt-link class="_1menu_list_text" to="/about-us">About Us</nuxt-link></li>
+                        <li><nuxt-link class="_1menu_list_text" to="/contact">Contact Us</nuxt-link></li>
+                        <li><nuxt-link class="_1menu_list_text" to="/sale">SALE!</nuxt-link></li>
                     </ul>
                 </div>
             </div>
@@ -73,7 +64,7 @@
             </div>
         </div>
         <div style="display:none">
-            <header class="header headercccccccccccccccccccccccccccccccccccccccccccccc-sticky d-none d-lg-block" >
+            <header class="header header-sticky d-none d-lg-block" >
                 <div class="header-top header-transparent">
                     <div class="container">
                         <div class="row align-items-center">

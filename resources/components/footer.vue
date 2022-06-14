@@ -6,7 +6,7 @@
             <div class="container">
             <div class="_1footer_top">
                 <div class="row">
-                <div class="col-12 col-md">
+                <div class="col-6 col-md">
                     <h2 class="_1footer_title">Support</h2>
 
                     <ul class="_1footer_list">
@@ -27,7 +27,7 @@
                     </li>
                     </ul>
                 </div>
-                <div class="col-12 col-md">
+                <div class="col-6 col-md">
                     <h2 class="_1footer_title">About Us</h2>
 
                     <ul class="_1footer_list">
@@ -46,7 +46,7 @@
                     </ul>
                 </div>
                 <div class="col-12 col-md">
-                    <h2 class="_1footer_title">Booking</h2>
+                    <h2 class="_1footer_title _mob_footer_title">Booking</h2>
 
                     <ul class="_1footer_list">
                     <li>
