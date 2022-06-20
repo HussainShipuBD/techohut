@@ -8,15 +8,35 @@
                     <div class="col-12 col-md-5 col-lg-5">
                         <div class="_login_main">
                             <h1 class="_login_title">Password Reset</h1>
-                            
+
                             <div class="_1input_group">
                                 <p class="_1label">Phone number</p>
                                 <input v-model="form_data.contact" @keyup.enter="onSubmit" class="_account_input" placeholder="Phone number">
                             </div>
 
                             <div class="_1input_button">
-                                <button  @click="onSubmit" class="_1btn">Send</button>
+                                <button type="submit" class="btn" @click="onSubmit" >{{sendLoading? 'Sending...' : 'Send'}}</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="_1content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-5 col-lg-5">
+                        <div class="_login_main">
+                            <h1 class="_login_title">Password Reset</h1>
+
+                            <div class="_1input_group">
+                                <p class="_1label">Phone number</p>
+                                <input v-model="form_data.contact" @keyup.enter="onSubmit" class="_account_input" placeholder="Phone number">
+                            </div>
+                            <div class="_1input_button">
+                                <button class="_1btn" @click="onSubmit">{{sendLoading? 'SENDING...' : 'SEND'}}</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -37,7 +57,7 @@ export default {
     },
     methods:{
         async onSubmit(){
-          if(this.sendCodeAgainLoading) return
+          if(this.sendLoading) return
             if(this.form_data.contact.trim() == '') return this.i("Phone Number is empty!")
             this.sendLoading = true;
             const res = await this.callApi('post','/app/sendResetMessage',this.form_data)

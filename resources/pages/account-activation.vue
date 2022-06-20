@@ -3,8 +3,29 @@
 <template>
 
     <div id="main-wrapper">
+          <div class="_1content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-5 col-lg-5">
+                        <div class="_login_main">
+                            <h1 class="_login_title">Account Activation Code</h1>
 
-            <div class="_1login">
+                            <div class="_1input_group">
+                                <p class="_1label">Activation Code</p>
+                                 <input type="text" placeholder="Activation Code..." class="_account_input"  v-model="form_data.token" @keyup.enter="onSubmit"></input>
+                            </div>
+                            <div class="_1input_button">
+                                <button class="_1btn" @click="onSubmit" style="margin-bottom:10px;">{{sendLoading?'Please wait...' :'Confirm'}} </button>
+                                <button class="_1btn" @click="sendCodeAgain">Send Code Again</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="_1login" v-if="previous_design">
             <div class="_1login_con">
                 <div class="_1login_logo">
                     <nuxt-link to="/"><img src="/img/mainLogo.svg" alt="" title=""></nuxt-link>

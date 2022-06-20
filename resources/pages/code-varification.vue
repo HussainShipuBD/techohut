@@ -2,10 +2,31 @@
 
 <template>
 
-    <div id="main-wrapper">
+    <div >
+      <div class="_1content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-5 col-lg-5">
+                        <div class="_login_main">
+                            <h1 class="_login_title">Password Reset Code</h1>
+
+                            <div class="_1input_group">
+                                <p class="_1label">Please enter the OTP</p>
+                                <input type="text" placeholder="Please enter the OTP " class="_account_input"  v-model="form_data.token" @keyup.enter="onSubmit">
+                            </div>
+                            <div class="_1input_button">
+                                <button class="_1btn" @click="onSubmit" style="margin-bottom: 10px;">{{sendLoading? 'SENDING...' : 'SEND'}}</button>
+                                <button class="_1btn" @click="sendCodeAgain">{{sendCodeAgainLoading? 'SENDING...' : 'SEND CODE AGAIN'}}</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
               <!-- New -->
-        <div class="_1login">
+        <div class="_1login" v-if="previous_design">
             <div class="_1login_con">
                 <div class="_1login_logo">
                     <nuxt-link to="/"><img  src="/img/mainLogo.svg" alt="" title=""></nuxt-link>
@@ -100,7 +121,7 @@ export default {
              this.sendLoading = false;
         },
          async sendCodeAgain(){
-            if(sendCodeAgainLoading) return
+            if(this.sendCodeAgainLoading) return
             let data= {
                 contact : this.$route.query.contact
             }

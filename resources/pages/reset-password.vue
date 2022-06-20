@@ -6,7 +6,7 @@
                     <div class="col-12 col-md-5 col-lg-5">
                         <div class="_login_main">
                             <h1 class="_login_title">Reset password</h1>
-                            
+
                             <div class="_1input_group">
                                 <p class="_1label">New password</p>
                                 <input v-model="form_data.password" class="_account_input" type="password" placeholder="New password">
@@ -19,6 +19,30 @@
                             <div class="_1input_button">
                                 <button  @click="reset" class="_1btn">Signup</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="_1content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-5 col-lg-5">
+                        <div class="_login_main">
+                            <h1 class="_login_title">Reset password</h1>
+
+                            <div class="_1input_group">
+                                <p class="_1label">New password</p>
+                                <input type="text" placeholder="New password" class="_account_input"  v-model="form_data.password" >
+                            </div>
+                            <div class="_1input_group">
+                                <p class="_1label">Confirm Password</p>
+                                <input type="text" placeholder="Confirm Password" class="_account_input"  v-model="form_data.cpassword" @keyup.enter="onSubmit">
+                            </div>
+                            <div class="_1input_button">
+                                <button class="_1btn" @click="reset" >{{sendLoading? 'Please wait...' : 'Reset'}}</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -15,8 +15,8 @@ const uniqid = require('uniqid');
 const SRequst = require('request');
 const { validate } = use('Validator')
 class UserController {
-  contactNumber (){ 
-    return "09678120120 ";
+  contactNumber (){
+    return "+8801309606092";
   }
     async register({request, auth, response}) {
         const data = request.all()
@@ -26,12 +26,12 @@ class UserController {
             'success': false,
             'message': 'Invalid Contact Number ',
           })
-          
+
         }
 
 
 
-         
+
           data.userType = 'Customer'
           let user = await User.create(request.all())
           if(user){
@@ -51,13 +51,13 @@ class UserController {
                   email:data.email,
               })
             }
-            
+
             let aUser = await User.query().where('id',user.id).with('customer').first()
             // let dataObj = {
             //   number:aUser.contact,
-            //   username:'01619672554',
-            //   password:'Nokia6300',
-            //   message:`Welcome to our DG family! Thanks for signing up in Dreams Gallery. We will provide you the best service and products at all times. We hope that you will continue supporting our products and services. 
+            //   username:'01745907284',
+            //   password:'5T2CZEWS',
+            //   message:`Welcome to our DG family! Thanks for signing up in Dreams Gallery. We will provide you the best service and products at all times. We hope that you will continue supporting our products and services.
             //   Happy shopping! Dreams Galllery .Call - 8801611141115`,
             // }
             // curl
@@ -74,12 +74,12 @@ class UserController {
             let d = {
               token: token
             }
-      
+
             let dataObj = {
               number:data.contact,
-              username:'01619672554',
-              password:'Nokia6300',
-              message:'Your dreamsgallerybd.com OTP is '+token,
+              username:'01745907284',
+              password:'5T2CZEWS',
+              message:'Your techohut.com OTP is '+token,
             }
             var options = {
               'method': 'POST',
@@ -88,8 +88,8 @@ class UserController {
                 'Content-Type': 'application/x-www-form-urlencoded'
               }
             };
-          
-            SRequst(options, function (error, response) { 
+
+            SRequst(options, function (error, response) {
               if (error) throw new Error(error);
               console.log(response.body);
             });
@@ -118,10 +118,10 @@ class UserController {
             'success': false,
             'message': 'Registration failed! ',
           })
-          
+
     }
     // async storeCustomer({request, auth, response}) {
-      
+
     //     let formatCustomerData = [];
     //     for(let d of allCustomer){
     //       let ob= {
@@ -145,11 +145,11 @@ class UserController {
     //       'success': false,
     //       'message': 'Registration successful! ',
     //     })
-          
+
     // }
     async sendActivationCode({request, auth, response}) {
         const data = request.all()
-         
+
             var token = randomToken(4);
             let d = {
               token: token
@@ -159,15 +159,15 @@ class UserController {
             if(check_otp_count.otp_count >= 3){
               return response.status(422).json({
                 'success': false,
-                'message': 'OTP Has been Locked! For more Information please call : +09678120120 ',
+                'message': 'OTP Has been Locked! For more Information please call :  '+this.contactNumber(),
               })
             }
-      
+
             let dataObj = {
               number:data.contact,
-              username:'01619672554',
-              password:'Nokia6300',
-              message:'Your dreamsgallerybd.com OTP is '+token,
+              username:'01745907284',
+              password:'5T2CZEWS',
+              message:'Your techohut.com OTP is '+token,
             }
             var options = {
               'method': 'POST',
@@ -176,8 +176,8 @@ class UserController {
                 'Content-Type': 'application/x-www-form-urlencoded'
               }
             };
-          
-            SRequst(options, function (error, response) { 
+
+            SRequst(options, function (error, response) {
               if (error) throw new Error(error);
               console.log(response.body);
             });
@@ -203,9 +203,9 @@ class UserController {
                 'success': true,
                 'message': 'A varification token send to your contact number! ',
             })
-          
-          
-          
+
+
+
       }
 
       async login({request, auth, response}) {
@@ -220,12 +220,12 @@ class UserController {
               let d = {
                 token: token
               }
-        
+
               let dataObj = {
                 number:contact,
-                username:'01619672554',
-                password:'Nokia6300',
-                message:'Your dreamsgallerybd.com OTP is '+token,
+                username:'01745907284',
+                password:'5T2CZEWS',
+                message:'Your techohut.com OTP is '+token,
               }
               var options = {
                 'method': 'POST',
@@ -234,12 +234,12 @@ class UserController {
                   'Content-Type': 'application/x-www-form-urlencoded'
                 }
               };
-            
-              SRequst(options, function (error, response) { 
+
+              SRequst(options, function (error, response) {
                 if (error) throw new Error(error);
                 console.log(response.body);
               });
-  
+
               // curl
               // .setBody(dataObj)
               // .post('http://66.45.237.70/api.php')
@@ -250,18 +250,18 @@ class UserController {
               // .catch((e) => {
               //     console.log(e);
               // });
-              
+
               await Database.table('password_resets').where('email', contact).delete()
               await Database.table('password_resets').insert({email: contact ,token: d.token})
               return response.status(402).json({
                 'success': false,
                 'message': 'Account varification required!'
-                
+
               })
             }
             let accessToken = await auth.generate(user)
-  
-            
+
+
             return response.status(200).json({
               'success': true,
               'message': 'Login Successful ! ',
@@ -275,12 +275,12 @@ class UserController {
             'success': false,
             'message': 'Invalid Credentials',
           })
-          
+
         }
-        
-      
+
+
         // try {
-          
+
 
         // } catch (e) {
         //   return response.status(402).json({
@@ -288,7 +288,7 @@ class UserController {
         //     'message': e,
         //   })
         // }
-       
+
     }
     async updateUser({ request, response, auth }){
       let data = request.all();
@@ -331,14 +331,14 @@ class UserController {
 
     // WishList Methods
     async getCustomer({ request, response, auth }){
-    
-      const customer = await Customer.query().whereNot('id',1).fetch(); 
+
+      const customer = await Customer.query().whereNot('id',1).fetch();
       return customer;
     }
     async showWishList({ request, response, auth }){
       let page = request.input('page') ? request.input('page') : 1
       const user = await auth.getUser();
-      const wishlist = await Wishlist.query().with('product.allgroup').with('product.allcategory').with('product.allbrand').with('product.allImages').with('product.avgRating').where('userId',user.id).paginate(page,10) 
+      const wishlist = await Wishlist.query().with('product.allgroup').with('product.allcategory').with('product.allbrand').with('product.allImages').with('product.avgRating').where('userId',user.id).paginate(page,10)
       return response.status(200).json({
         'success': true,
         wishlist : wishlist,
@@ -412,7 +412,7 @@ class UserController {
     }
     async storeContactus({ request, response }){
       let data = request.all()
-     
+
       const contactus = await Contactus.create(data)
       return response.status(200).json({
         'success': true,
@@ -421,7 +421,7 @@ class UserController {
     }
 
 
-    // Password REset 
+    // Password REset
 
     async sendResetMessage ({ request, response }) {
       let contact = request.all().contact
@@ -440,9 +440,9 @@ class UserController {
 
       let dataObj = {
         number:contact,
-        username:'01619672554',
-        password:'Nokia6300',
-        message:'Your dreamsgallerybd.com OTP is '+token,
+        username:'01745907284',
+        password:'5T2CZEWS',
+        message:'Your techohut.com OTP is '+token,
       }
       var options = {
         'method': 'POST',
@@ -451,8 +451,8 @@ class UserController {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       };
-    
-      SRequst(options, function (error, response) { 
+
+      SRequst(options, function (error, response) {
         if (error) throw new Error(error);
         console.log(response.body);
       });
@@ -467,7 +467,7 @@ class UserController {
       // .catch((e) => {
       //     console.log(e);
       // });
-     
+
       await Database.table('password_resets').where('email', contact).delete()
       await Database.table('password_resets').insert({email: contact ,token: data.token})
       return response.status(200).json({
@@ -477,9 +477,9 @@ class UserController {
     }
     async getResetMessage ({ request, response }) {
       let data = request.all()
-      const count = await Database.from('password_resets').where('email', data.email).where('token',data.token).count('* as total')  
-                              
-      const total = count[0].total   
+      const count = await Database.from('password_resets').where('email', data.email).where('token',data.token).count('* as total')
+
+      const total = count[0].total
       // eslint-disable-next-line eqeqeq
       if (total == 0) {
         return response.status(404).json({
@@ -492,11 +492,11 @@ class UserController {
         'message': ""
       })
     }
-    async activeAccount ({ request, response, auth }) { 
+    async activeAccount ({ request, response, auth }) {
       let data = request.all()
-      const count = await Database.from('password_resets').where('email', data.email).where('token',data.token).count('* as total')  
-                              
-      const total = count[0].total   
+      const count = await Database.from('password_resets').where('email', data.email).where('token',data.token).count('* as total')
+
+      const total = count[0].total
       // eslint-disable-next-line eqeqeq
       if (total == 0) {
         return response.status(404).json({
@@ -504,16 +504,16 @@ class UserController {
           'message': "Invalid Code"
         })
       }
-      
+
       await Database.table('password_resets').where('email', data.email).delete()
       await User.query().where('contact',data.email).update({'isActive':1});
       let user = await User.query().where('contact',data.email).with('customer').first()
       let accessToken = await auth.generate(user)
       let dataObj = {
         number:data.email,
-        username:'01619672554',
-        password:'Nokia6300',
-        message:`Welcome to our DG family! Thanks for signing up in Dreams Gallery. We will provide you the best service and products at all times. We hope that you will continue supporting our products and services.Happy shopping! Dreams Galllery .Call - ${this.contactNumber()}`,
+        username:'01745907284',
+        password:'5T2CZEWS',
+        message:`Welcome to our Techohut family! Thanks for signing up in Techohut. We will provide you the best service and products at all times. We hope that you will continue supporting our products and services.Happy shopping! Techohut .Call - ${this.contactNumber()}`,
       }
       var options = {
         'method': 'POST',
@@ -522,8 +522,8 @@ class UserController {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       };
-    
-      SRequst(options, function (error, response) { 
+
+      SRequst(options, function (error, response) {
         if (error) throw new Error(error);
         console.log(response.body);
       });
@@ -538,21 +538,21 @@ class UserController {
       // .catch((e) => {
       //     console.log(e);
       // });
-          
+
       return response.status(200).json({
         'success': true,
         'message': 'Login Successful ! ',
         "user": user,
         "token": accessToken.token
       })
-      
+
     }
 
     async resetPassword ({  request, response, auth }) {
       const data = request.all()
-      const count = await Database.from('password_resets').where('email', data.contact).where('token',data.token).count('* as total')  
-                              
-      const total = count[0].total   
+      const count = await Database.from('password_resets').where('email', data.contact).where('token',data.token).count('* as total')
+
+      const total = count[0].total
       // eslint-disable-next-line eqeqeq
       if (total == 0) {
         return response.status(404).json({
@@ -561,9 +561,9 @@ class UserController {
         })
       }
       data.password = await Hash.make(data.password)
-      
-      
-      
+
+
+
       let pdata = await User.query().where('contact', data.contact).update({password:data.password})
       return response.status(200).json({
         'success': true,
@@ -580,14 +580,14 @@ class UserController {
 
       let count = await Noti.query().where('userId',user.id).where('seen',0).count('id as total');
       count = count[0].total
-                              
+
       return response.status(200).json({
         'success': true,
         'notiCount': count
       })
     }
     async getNotiDetails ({ request, response, auth }){
-      let limit =  request.input('limit') 
+      let limit =  request.input('limit')
       const user = await auth.getUser();
 
       let c =  Noti.query().where('userId',user.id);
@@ -597,7 +597,7 @@ class UserController {
 
       let count = await c.orderBy('id','desc').fetch();
 
-                              
+
       return response.status(200).json({
         'success': true,
         'notiDetails': count
@@ -609,7 +609,7 @@ class UserController {
 
       await Noti.query().where('userId',user.id).where('id',data.id).update({seen:1});
       let count = await Noti.query().where('userId',user.id).limit(10).orderBy('id','desc').fetch();
-                              
+
       return response.status(200).json({
         'success': true,
         'data': count
@@ -621,7 +621,7 @@ class UserController {
 
       await Noti.query().where('userId',user.id).update({seen:1});
       let count = await Noti.query().where('userId',user.id).limit(10).orderBy('id','desc').fetch();
-                              
+
       return response.status(200).json({
         'success': true,
         'data': count
@@ -633,7 +633,7 @@ class UserController {
 
       await Noti.query().where('userId',user.id).where('id',data.id).delete();
       let count = await Noti.query().where('userId',user.id).limit(10).fetch();
-                              
+
       return response.status(200).json({
         'success': true,
         'data': count
@@ -669,7 +669,7 @@ class UserController {
       let customer = await Customer.query().where('userId',user.id).first()
       let bonus= await Bonus.query().where('customer_id',customer.id).sum('amount as total' ).first()
       if(bonus.total == null) bonus.total = 0
-      
+
       return response.status(200).json({
         'success': true,
         'bonus': bonus

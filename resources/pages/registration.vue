@@ -8,14 +8,14 @@
                     <div class="col-12 col-md-5 col-lg-5">
                         <div class="_login_main">
                             <h1 class="_login_title">Signup</h1>
-                            
+
                             <div class="_1input_group">
                                 <p class="_1label">First name</p>
                                 <input  v-model="firstName" class="_account_input" placeholder="First name">
                             </div>
                             <div class="_1input_group">
                                 <p class="_1label">Last name</p>
-                                <input v-model="form_data.lastName" class="_account_input" placeholder="Last name">
+                                <input v-model="lastName" class="_account_input" placeholder="Last name">
                             </div>
                             <div class="_1input_group">
                                 <p class="_1label">Phone</p>
@@ -27,17 +27,18 @@
                             </div>
                             <div class="_1input_group">
                                 <p class="_1label">Password</p>
-                                <input v-model="form_data.password" class="_account_input" :type="isPasswordShow == true ? 'text' : 'password'" placeholder="Password">
+                                <input v-model="form_data.password" class="_account_input" type="password"  placeholder="Password">
                             </div>
                             <div class="_1input_group">
                                 <p class="_1label">Confirm password</p>
-                                <input v-model="form_data.cpassword" class="_account_input" :type="isPasswordShow == true ? 'text' : 'password'" placeholder="Confirm password" @keyup.enter="registar">
+                                <input v-model="form_data.cpassword" class="_account_input" type="password
+                                "  placeholder="Confirm password" @keyup.enter="registar">
                             </div>
 
                             <div class="_1input_button">
                                 <button  @click="registar" class="_1btn">Signup</button>
                             </div>
-                            
+
                             <p class="_login_dont">Already have an account? <nuxt-link to="/login">Login</nuxt-link></p>
                         </div>
                     </div>
